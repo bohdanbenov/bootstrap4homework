@@ -1,0 +1,10 @@
+<center><h1>Creation of new user</h1></center>
+
+<%= bootstrap_form_for(@user, layout: :horizontal, label_col: "col-sm-1", control_col: "col-sm-4") do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :lastname %>
+  <%= f.email_field :email %>
+  <%= f.form_group do %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
