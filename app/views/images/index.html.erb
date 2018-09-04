@@ -14,11 +14,7 @@
           Menu
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%@users.each do |user| %>
-            <a class="dropdown-item" href=<%=user_path(user.id) %>><%= "#{user.name} #{user.lastname}"%></a>
-          <% end %>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href=<%=new_user_path%>>Create new user</a>
+          <a class="dropdown-item" href=<%=users_path%>>Main page</a>
         </div>
       </li>
     </ul>
@@ -27,13 +23,13 @@
 
 <div class="container">
   <div class="row">
-    <% @urls.each do |url|%>
+    <% @all_urls.each do |record|%>
       <div class="col-sm-3">
         <div class="card">
           <div class="container">
-            <img class="card-img-top img-fluid image" src=<%= url %> alt="image">
+            <img class="card-img-top img-fluid image" src=<%= record.url %> alt="image">
             <div class="overlay">
-              <div class="text">Picture ID</div>
+              <div class="text"><%= record.id %></div>
             </div>
           </div>
           <div class="card-block">

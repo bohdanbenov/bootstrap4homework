@@ -14,11 +14,8 @@
           Menu
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%@users.each do |user| %>
-            <a class="dropdown-item" href=<%=user_path(user.id) %>><%= "#{user.name} #{user.lastname}"%></a>
-          <% end %>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href=<%=new_user_path%>>Create new user</a>
+          <a class="dropdown-item" href=<%=users_path%>>Main page</a>
+          <a class="dropdown-item" href=<%=user_images_path(user_id: @user.id)%>>Show my favourites</a>
         </div>
       </li>
     </ul>
@@ -40,6 +37,7 @@
             <h4 class="card-title">Card title</h4>
             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
           </div>
+          <div class="card-footer"><center><%= link_to 'Add to favourites', user_image_path(user_id: @user.id, url: url), method: :put, class: "btn btn-success" %></center></div>
         </div>
       </div>
     <% end %>
